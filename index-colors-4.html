@@ -1,0 +1,63 @@
+<html>
+  <head>    
+  </head>
+  <body>
+    <style>
+      label {
+        font-weight: bold;
+      }
+      .color {
+        width: 50px;
+        height: 50px;
+        background-color: #ddd;
+        margin: 5px;
+      }
+      .red {
+        background-color: red;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .purple {
+        background-color: purple;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .green {
+        background-color: green;
+      }
+    </style>
+    <div>
+      <h1>Select colors to blend</h1>
+      <label>Color 1</label>
+      <div>Choose one</div>
+      <div class="colors">
+        <div class="color red" data-color-number="1" data-color="red"></div>
+        <div class="color yellow" data-color-number="1" data-color="yellow"></div>
+        <div class="color blue" data-color-number="1" data-color="blue"></div>
+        <div class="color purple" data-color-number="1" data-color="purple"></div>
+        <div class="color orange" data-color-number="1" data-color="orange"></div>
+        <div class="color green" data-color-number="1" data-color="green"></div>
+      </div>
+      <label>Color 2</label>
+      <div>Choose one</div>
+      <div class="colors">
+        <div class="color red" data-color-number="2" data-color="red"></div>
+        <div class="color yellow" data-color-number="2" data-color="yellow"></div>
+        <div class="color blue" data-color-number="2" data-color="blue"></div>
+        <div class="color purple" data-color-number="2" data-color="purple"></div>
+        <div class="color orange" data-color-number="2" data-color="orange"></div>
+        <div class="color green" data-color-number="2" data-color="green"></div>
+      </div>
+    </div>
+    <div>
+      <h1>Color 1 + Color 2 blends into:</h1>
+      <div id="result"></div>
+    </div>
+    <script type="text/javascript" src="colors-4.js"></script>
+  </body>
+</html>
