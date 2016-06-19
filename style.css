@@ -1,0 +1,30 @@
+div {
+    height: 1500px;
+    position: static;
+    background-color: purple;
+}
+
+.p1 {
+    width: 250px;
+    display: inline-block;
+    border:2px solid red;
+    float: right;
+}
+
+.p2 {
+    width: 250px;
+    display: inline-block;
+    border: 2px solid blue;
+    float: right;
+    margin-right: 50px;
+}
+
+.p3 {
+    width: 250px;
+    display: inline-block;
+    border: 2px solid green;
+    float: right;
+    margin-right: 50px;
+    position: relative;
+    bottom: 300px;
+}
