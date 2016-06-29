@@ -1,0 +1,26 @@
+/*
+1. order: top to bottom. bottom overrides the top.
+
+
+*/
+
+/*  <div id="third" class="first second"></div> */
+
+.first {
+  color: black;
+}
+
+.second {
+  color: white;
+}
+
+#third {
+  color: red;
+}
+
+div {
+  color: blue !important;
+}
+
+/*then the div will be white colored*/
+

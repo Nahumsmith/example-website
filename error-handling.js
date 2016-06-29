@@ -38,6 +38,9 @@ Logic errors: the program returns a valid result, but the result is not what you
 // - it's easier to plan for failure somewhere, than to anticipate it everywhere.
 
 function callMe(x) {
+  if (typeof x !== 'number') {
+    throw 'Expected a number but got ' + x;
+  }
   if (x === undefined) {
     throw 'callMe expected an argument but got undefined';
   }
@@ -49,6 +52,9 @@ function callMe(x) {
   if (x === undefined) {
     throw new Error('callMe expected an argument but got undefined');
     // ^ has more consistent browser behavior than just `throw`
+  }
+  if (typeof x !== 'number') {
+    throw new TypeError('Expected a number but got ' + x);
   }
 }
 

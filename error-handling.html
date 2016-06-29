@@ -9,21 +9,66 @@
   <p id="message"></p>
 
   <script>
-  // an input value is valid if it is a number and it is between 1 and 100
+  // an input value is valid if it is a number and it is between 5 and 10 (x > 5 and x < 10)
+
+  // valid =
+  // x is a number
+  // AND x > 5
+  // AND x < 10
+
+  // invalid =
+  // x is NOT a number (valid: '3', '4', '45') (invalid: 'asfadsf', '')
+  //     === isNaN(x) is true
+  // OR x <= 5
+  // OR x >= 10
+
+  // contrapositive: x && y && z  opposite of !x || !y || !z
+  // !x || !y || !z means x && y && z is not true
+  // x && y && z true means that !x || !y || !z is not true
+
+  // mutability
+  // Number does not "mutate" x
+
+
   function myFunction() {
       var message, x;
       message = document.getElementById("message");
       message.innerHTML = "";
       x = document.getElementById("demo").value;
-      try { 
-          // throw an error if the input number is not valid.
-      }
-      catch(err) {
-          // populate the p#message with text from the error when the input is not valid.
-          message.innerHTML = "Input is " + err;
+      // try {
+      //   if (isNaN(x)) {
+      //     throw 'not a number';
+      //   }
+      //   // everything from here onward is a number
+      //   x = Number(x);
+
+      //   if (x <= 5) {
+      //     throw 'out of range, too low!';
+      //   }
+      //   // everything here onward is > 5
+      //   if (x >= 10) {
+      //     throw 'out of range, too high!';
+      //   }
+      //   // x is valid
+      //   message.innerHTML = 'This is valid! ' + x;
+      // } catch(errorUnicorns) {
+      //     // populate the p#message with text from the error when the input is not valid.
+      //     message.innerHTML = "Input is " + errorUnicorns;
+      // }
+      if (x <= 5 || x >= 10 || isNaN(x)) {
+        throw 'This is not good!';
       }
   }
   </script>
 
+
+<!-- // order of execution
+// raising an exception vs a return statement
+// using isNaN
+// x === NaN
+
+// chaining ||, order of evaluation
+// ? ternary operator
+ -->
 </body>
 </html>

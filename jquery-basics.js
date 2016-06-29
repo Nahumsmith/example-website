@@ -121,6 +121,9 @@ var handleClick = function() {
 
 $('li').on( 'click', handleClick);
 
+var lis = document.getElementsByTagName('li');
+lis[0].onclick = handleClick;
+
 
 // note: will apply to all 'li' elements that was selected at the point
 // where $('li') was invoked. But will NOT apply to other 'li' elements
