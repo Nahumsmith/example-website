@@ -23,3 +23,7 @@ Internal notes.
 - Advanced Git (reset, cherry-pick, reflog)
 - Group Project
 
+* Connecting to a Backend *
+- Hosts
+- Ports
+- Databases

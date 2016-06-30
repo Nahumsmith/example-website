@@ -1,0 +1,213 @@
+<html>
+  <head>
+    <title>Exercises</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Bootstrap framework, fetched from: http://getbootstrap.com/getting-started/ -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="exercises.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Project name</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Week 3 Homework</h1>
+        <hr>
+        <ol class="lead">
+          <li>
+            <a href="http://www.w3schools.com/quiztest/quiztest.asp?qtest=JavaScript" target="_blank">
+              Complete this Javascript Quiz
+            </a>
+            to assess your knowledge of the basics and know where you need to improve more.
+            <div class="alert alert-info">
+              <small>If you miss more than 3 questions, review the
+              <a href="https://canvas.instructure.com/courses/1027400/files/42776606?module_item_id=9891744" target="_blank">
+                Javascript Basics slides
+              </a>again.</small>
+            </div>
+          </li>
+          <li></li>
+          <li></li>
+        </ol>
+        <p class="lead">
+          <strong>Pick at least 5 exercises</strong> in the <a href="#topics">topics we covered</a> wherever you feel you need the most practice.
+          Complete them by Tuesday class.
+        </p>
+        <p class="lead"><strong>Bonus:</strong> Complete as many <a href="#">Bonus Challenges</a> as you can.</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <h3 id="topics">Topics We Covered</h3>
+          <ol>
+            <li>HTML</li>
+            <li>Assigning Variables</li>
+            <li>Data Types and <code>typeof</code></li>
+            <li>Anonymous functions and executing anonymous functions</li>
+            <li>Logic (if statements)</li>
+            <li>Basic Loops (for, while)</li>
+            <li>More Loops (for...in, do...while)</li>
+            <li>Array methods</li>
+            <li>Array methods on Strings</li>
+            <li>The DOM & DOM Basics</li>
+            <li>DOM Manipulation</li>
+            <li>DOM event handling</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h3>HTML</h3>
+          <h4>Getting down the tags</h4>
+          <p>Complete this table with a full list of HTML tags, a description that <strong>you</strong> understand,
+          and some various examples</p>
+          <table class="table table-bordered table-striped">
+            <tbody>
+              <tr>
+                <th>HTML Tag</th>
+                <th>Self-closing vs Closing</th>
+                <th>Description</th>
+                <th>Examples</th>
+              </tr>
+              <tr>
+                <td>a</td>
+                <td>Closing tag required</td>
+                <td>Create a link to another webpage or part of the page.</td>
+                <td>
+                  <pre>&lt;a href="http://example.com"&gt;Example Link&lt;/a&gt;</pre>
+                  <pre>&lt;a target="_blank" href="http://newtabwebsite.com"&gt;Example Link (opens new tab/window)&lt;/a&gt;</pre>
+                  <pre>&lt;a href="#some-header"&gt;Example Link (goes to element with id="some-header" on the page)&lt;/a&gt;</pre>
+                </td>
+              </tr>
+              <tr>
+                <td>img</td>
+                <td>Self-closing</td>
+                <td>Image</td>
+                <td>
+                  <pre>&lt;img src="my_image.png"&gt;</pre>
+                  <pre>&lt;img src="images/cats.jpeg"&gt;</pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <!-- The DOM & DOM Manipulation -->
+          <h3>The DOM & DOM Basics</h3>
+
+          <h4>Understanding what's in the DOM</h4>
+          <p>
+            The DOM is accessed via the <code>document</code> object, that's accessible in both your browser's console and in your javascript files as a global variable.
+            Write a table of definitions explaining what each of the following methods of <code>document</code> returns.
+            <ul>
+              <li><code>getElementById</code></li>
+              <li><code>getElementsByTagName</code></li>
+              <li><code>innerHTML</code></li>
+              <li><code>innerText</code></li>
+              <li><code>outerHTML</code></li>
+              <li><code>classList</code></li>
+              <li><code>className</code></li>
+              <li><code>onclick</code></li>
+              <li>List of all the possible click handlers. (See this <a href="http://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">reference</a>)</li>
+              <li><code>addEventListener</code> and how it's used</li>
+            </ul>
+          </p>
+
+          <!-- DOM Manipulation -->
+          <h3>DOM Manipulation</h3>
+
+          <!-- DOM event handling -->
+          <h3>DOM event handling</h3>
+
+          <h4>Mouseover</h4>
+          <p>Create a website with a styled div that, when you <strong>mouse</strong> over it, it gets styled differently, and when you mouse out of it, it goes back to its original style.</p>
+
+          <h4>Click</h4>
+          <p>Create a website with a styled div that, when you <strong>click</strong> over it, it gets styled differently, and when you click it again, it goes back to its original style.</p>
+
+          <h4>Click with CSS Transforms</h4>
+          <p>
+            Create a website with an image of your choice on it. Every time you click on the image,
+            it does a neat trick, like rotate, zoom in, etc.
+            Check out <a href="https://css-tricks.com/almanac/properties/t/transform/" target="_blank">CSS Tricks: Transform</a>
+            and this <a href="http://stackoverflow.com/questions/22492498/css-resize-zoom-in-effect-on-image-while-keeping-dimensions" target="_blank">StackOverflow post</a>.
+          </p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-lg-6" id="bonus">
+          <header>
+            <h2>Bonus Challenges</h2>
+            <p class="lead">You ready for this?</p>
+          </header>
+
+          <h4>A Difficult Assessment</h4>
+          <p>
+            Take this <a href="http://davidshariff.com/js-quiz/" target="_blank">Javascript Web Development Quiz</a>.
+            It will cover 90% of what we've already covered in class, plus a few new things about Javascript, too.
+            For every incorrect answer, understand why you got it wrong + a description of the concept evaluated, and write it down (so
+            we have the chance to go over it in class later).
+            Retake the quiz until you score high. Aim to beat the average (~50%).
+          </p>
+          <p><strong>Do not worry about Question 13, 15, 16 for now.</strong></p>
+          <p>
+            Feel free to ask questions in Slack in the class channel or #questions <em>anytime</em> that you are stuck!
+          </p>
+          <p>Things to Google:
+            instanceof,
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank">javascript arguments object</a>
+          </p>
+
+          <h4>Learning Best Practices</h4>
+          <p>
+            Read <a href="http://code.tutsplus.com/tutorials/24-javascript-best-practices-for-beginners--net-5399" target="_blank">24 JavaScript Best Practices for Beginners</a>.
+            Take a previous javascript homework assignment and commit it to github as a new github repo. Then rewrite your code so that it follows each one of the best practices listed.
+            Commit your refactored changes. Go to your github repo, hit Commits, and click on the commit that contains your refactored changes.
+            Copy the URL of that page and submit that commit page URL to complete this exercise.
+          </p>
+
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>© 2015 Company, Inc.</p>
+      </footer>
+
+    </div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+</html>
