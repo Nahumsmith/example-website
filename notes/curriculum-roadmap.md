@@ -5,6 +5,14 @@ Internal notes.
 
 ###Future topics
 
+Navigator
+Window (window.open)
+event handlers: onclick, etc.
+
+= : assinging a value to a variable
+if syntax
+type conversion: Boolean(), String(), Number()
+
 
 - Build tasks (Gulp, Grunt)
 - Promises

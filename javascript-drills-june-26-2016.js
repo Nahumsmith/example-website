@@ -189,38 +189,54 @@ function isPartOfSecondaryColor(secondaryColor, primColor) {
   } else if (secondaryColor === 'orange') {
     return primColor == 'red' || primColor === 'yellow';
   }
+  // green
 }
 
-function blend(color1, color2) {
-  if (color1 === 'brown' || color2 === 'brown') {
+function blend(burgers, fries) {
+  if (burgers === 'brown' || fries === 'brown') {
     return 'brown';
   }
   // none of the colors are brown 
-  if (isPrimaryColor(color1) && isPrimaryColor(color2)) {
-    return secondaryColor(color1, color2);
+  if (isPrimaryColor(burgers) && isPrimaryColor(fries)) {
+    return secondaryColor(burgers, fries);
   }
   // one of the color is a secondary color
-  if (isPrimaryColor(color1)) {
-    // is color1 part of color2?
-    // color2 is a secondary color
-    if (isPartOfSecondaryColor(color2, color1)) {
-      return color2;
+  if (isPrimaryColor(burgers)) {
+    // is burgers part of fries?
+    // fries is a secondary color
+    // fries: purple
+    // burgers: blue
+    if (isPartOfSecondaryColor(fries, burgers)) {
+      return fries;
     } else {
       return 'brown';
     }
   } else {
-    // primary color is color2, secondary color is color1
-    if (color2 is part of color1) {
-      return color1;
+    // primary color is fries, secondary color is burgers
+    // burgers: purple
+    // fries: blue
+    if (isPartOfSecondaryColor(burgers, fries)) {
+      return burgers;
     } else {
       return 'brown';
     }
   }
 }
 
-blend('purple', 'red'); // => purple
-blend('purple', 'red'); // => purple
-blend('yellow', 'red'); // => orange
+blend('green', 'red'); // => brown
+blend('green', 'yellow'); // => green
+
+blend('blue', 'purple'); // => purple
+blend('purple', 'blue'); // => purple
+blend('yellow', 'green'); // => green
+blend('green', 'yellow'); // => green
+blend('red', 'green'); // => brown
+blend('green', 'red'); // => brown
+
+
+
+
+
 blend('purple', 'yellow'); // => brown
 blend('green', 'purple'); // => brown
 blend('orange', 'green'); // => brown
@@ -244,6 +260,55 @@ multiblend('yellow', 'red', 'blue'); // => brown
 multiblend('brown', 'red', 'yellow'); // => brown
 multiblend('purple', 'purple', 'blue'); // => purple
 
+function multiblend2(arrayOfColors) {
+  // return the blend based on the array of colors
+  // the array can be any number of colors.
+}
+
+// TODO: look into
+function loopArray(array) {
+  for (var i = 0; i < array.length; i++) {
+    array.push(1);
+  }
+  return array;
+}
+
+// ====
+
+var persons = [{
+  name: 'amy',
+  hasPet: false
+}, {
+  name: 'tom',
+  hasPet: true
+}, {
+  name: 'jack',
+  hasPet: false
+}, {
+  name: 'jill',
+  hasPet: true
+}];
+
+function printPersons(persons) {
+  for (var i = 0; i < persons.length; i++) {
+    var person = persons[i];
+    // {name: "amy", hasPet: false}
+    if (person.hasPet) {
+      console.log(person.name + ' has a pet');
+    } else {
+      console.log(person.name + ' does not have a pet');
+    }
+  }  
+}
+
+printPersons(persons);
+
+// amy does not have a pet
+// tom has a pet
+// ...
+
+
+
 // ----
 
 var bike = {
@@ -253,9 +318,14 @@ var bike = {
   }
 }
 
-bike.replaceTire(1);
+function replaceTire(tireIndex, newTire) {
+  this.tires[tireIndex] = newTire;
+}
+
+bike.replaceTire(1, undefined);
 // what is the result of the following 2 statements?
 console.log(bike.tires[1]);
+
 console.log(bike.tires);
 
 // using bike.replaceTire, replace the tires so that
