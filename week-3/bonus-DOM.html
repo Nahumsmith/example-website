@@ -11,12 +11,17 @@
           width: 200px;
           height: 200px;
           margin: 50px 50px;
+          transition: width 1s, height 1s;
       }
       .divClass1 {
           background-color: yellow;
       }
       .divClass2 {
           background-color: green;
+      }
+      .divs.big {
+          width: 400px; 
+          height: 400px;
       }
         
     </style>
@@ -44,8 +49,11 @@
                 $('.divClass2').css('background-color', 'green');
             });
             $('div').click(function() {
-                $(this).fadeOut("slow");
+                $(this).toggleClass('big');
             });
+              
+               
+          
    
     </script>
     </body>
