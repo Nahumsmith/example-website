@@ -1,0 +1,52 @@
+<html>
+    
+    <head>
+        <title>Javascript Drills Bonus Assignment</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <style>
+      
+      .divs {
+          float: left;
+          width: 200px;
+          height: 200px;
+          margin: 50px 50px;
+      }
+      .divClass1 {
+          background-color: yellow;
+      }
+      .divClass2 {
+          background-color: green;
+      }
+        
+    </style>
+        
+    <body>
+        <div id="div1" class="divClass1 divs"></div>
+        <div id="div2" class="divClass2 divs"></div>
+        <div id="div3" class="divClass1 divs"></div>
+        <div id="div4" class="divClass2 divs"></div>
+  
+       
+        
+    
+    <script>
+            $('.divClass1').mouseover(function(){
+                $('.divClass1').css('background-color', 'blue');
+            });
+            $('.divClass1').mouseout(function(){
+              $('.divClass1').css('background-color', 'yellow');
+            });
+            $('.divClass2').mouseover(function(){
+                $('.divClass2').css('background-color', 'red');
+            });
+            $('.divClass2').mouseout(function(){
+                $('.divClass2').css('background-color', 'green');
+            });
+            $('div').click(function() {
+                $(this).fadeOut("slow");
+            });
+   
+    </script>
+    </body>
+</html>

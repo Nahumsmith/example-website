@@ -1,0 +1,672 @@
+<html>
+  <head>
+    <title>JS Drills | Week 3</title>
+  </head>
+  <style>
+    body {
+      font-size: 14px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+    code {
+      color: #c30000;
+      display: inline-block;
+      padding: 2px 5px;
+      background-color: #fff4f4;
+      white-space: pre;
+    }
+    li {
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+      line-height: 1.75em;
+    }
+    .block {
+      margin: 1em 0;
+      padding: 1em 5em;
+      background-color: #fff4f4;
+      color: #c30000;
+      white-space: pre;
+      font-family: monospace;
+    }
+
+    .alert {
+      padding: 1em;
+      background-color: #c7f9ff;
+    }
+    article {
+      margin-bottom: 50px;
+    }
+    ul > li {
+      list-style-type: lower-alpha;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Javascript Drills</h1>
+      </header>
+      <article>
+        <header>
+          <h2>Functions vs Function Calls</h2>
+          <div class="alert">
+            Resources: <a href="http://www.w3schools.com/js/js_function_invocation.asp">w3schools - Function Invocations</a>
+          </div>
+        </header>
+        <ol>
+          <li>
+            <div class="block">
+                function multiply1(x, y) {
+                  return x * y;
+                }
+
+                function multiply2(x, y) {
+                  x * y;
+                }
+            </div>
+            <ul>
+              <li>What is the result of <code>multiply1(5, 2) === 10</code>? <code>multiply2(5, 2) === 10</code>?</li><br>
+              <strong><code>multiply1(5,2) === 10; //-> true</code><br>
+                      <code>multiply2(5,2) === 10; //-> false</code><br>
+                      <p>This is because: The first function returns the value of (x * y) and that returned number is what is being set 
+                      strictly equal to 10; the second function does not return any value (even though it does multiply the inputs) and 
+                      therefore is setting (undefined) strictly 
+                      equal to 10 which returns false.</p></strong>
+              
+              <li>What is the result of <code>multiply1(5, 2) !== 10</code>? <code>multiply2(5, 2) !== 10</code>?</li><br>
+              <strong><code>multiply1(5, 2) !== 10; //-> false</code>
+                      <code>multiply2(5, 2) !== 10; //-> true</code>
+                      <p>This is because: (a1) the function multiply1(5, 2); returns 10, and 10 is strictly equivalent to 10.<br>
+                                          (a2) because the multiply2() function does not return a value it will always return undefined,
+                                          undefined is !== 10, and therefore the expression is true.</p></strong>
+                                          
+              <li>What is the result of <code>typeof multiply1(5, 2)</code>? <code>typeof multiply2(5, 2)</code>?</li><br>
+              <strong><code>typeof multiply1(5, 2); //-> "number".</code><br>
+                      <code>typeof multiply2(5, 2); //-> "undefined".</code></strong>
+                      
+              <li>What is the result of <code>isNaN(multiply1(5, 2))</code>? <code>isNaN(multiply2(5, 2))</code>?</li><br>
+               <strong><code>isNaN multiply1((5, 2)); //-> "false".</code><br>
+                      <code>isNaN multiply2((5, 2)); //-> "true".</code></strong>
+                      
+              <li>What is the result of <code>!isNaN(multiply1(5, 2))</code>? <code>!isNaN(multiply2(5, 2))</code>?</li><br>
+               <strong><code>!isNaN multiply1((5, 2)); //-> "true".</code><br>
+                      <code>!isNan multiply2((5, 2)); //-> "false".</code></strong>
+                      
+              <li>What is the result of <code>multiply1(5, 2) + multiply1(100,2)</code>? <code>multiply2(5, 2) + multiply2(100,2)</code>?</li><br>
+              <strong><code>multiply1(5, 2) + multiply1(100,2); //-> 210.</code><br>
+                      <code>multiply2(5, 2) + multiply2(100,2); //-> NaN.</code></strong>
+                      
+              <li>What is the result of <code>multiply1 + multiply2(5, 1)</code>?</li><br>
+              <strong><code>multiply1 + multiply2(5, 1); //-> NaN</code></strong>
+              <li>Create a statement using only the function <code>multiply1</code> and <code>+</code> to compute 997</li><br>
+              <strong><code>multiply1(1, 1) + multiply1(498, 2); //-> 997</code></strong>
+            </ul>
+          </li>
+          <li>
+            <div class="block">
+              var myObject = {
+                  firstName:"John",
+                  lastName: "Doe",
+                  fullName: function() {
+                      return this.firstName + " " + this.lastName;
+                  },
+                  myself: function() {
+                    return this;
+                  }
+              };
+            </div>
+            <ul>
+              <li>What is the result of <code>myObject.firstName</code>? <code>myObject.lastName</code>?</li>
+              <p><strong><code>myObject.firstName; //-> "John"</code>
+                         <code>myObject.lastName; //-> "Doe"</code></strong></p>
+              
+              <li>What is the result of <code>myObject.fullName</code>?</li>
+              <p><strong><code>myObject.fullName; //-> function () { return this.firstName + " " this.lastName; }</code>
+              without adding the parentheses calling the myObject.fullName function, it will only return the value of the key: fullName, which is equal to 
+              the function (object) not the value of the function being called.</strong></p>
+              
+              <li>What is the result of <code>myObject.fullName()</code>?</li>
+              </p><strong><code>myObject.fullName(); //-> "John Doe"</code></strong></p>
+              
+              <li>What is the result of <code>myObject.fullName('Jane', 'Smith')</code>?</li>
+              <p><strong><code>myObject.fullName('Jane', 'Smith'); //-> "John Doe"</code><br>
+              This is because the function object (the value of) to fullName takes no parameters/arguments, so adding them as part of the function call
+              does not change the output of the original function (which is <code>"John Doe"</code>)</strong></p>
+              
+              <li>What is the result of <code>myObject.myself</code>?</li>
+              <p><strong><code>myObject.myself; //-> function () { return this; }</code>
+              <p>without adding the parentheses calling the myObject.myself function, it will only return the value of the key: myself, which is equal to the
+              function (object) not the value of the function being called.</strong></p>
+        
+              <li>What is the result of <code>myObject.myself()</code>?</li>
+              <p><strong><code>myObject.myself; //-> Object {firstName: "John", lastName: "Doe"}</code>
+              <p>BY adding the parentheses you're calling the function <code>myself()</code> which returns the value of running the function itself
+              which is <code>this</code>.  <code>this</code> will return the Object myObject, which lists all the key/value pairs that make up myObject.</strong></p>
+              
+              <li>What is the result of <code>myObject.myself(23)</code>?</li>
+              <p><strong><code>myObject.myself(23); //-> Object {firstName: "John", lastName: "Doe"}</code>
+              see above for why adding arguments (23) does nothing to affect the output.</strong></p>
+            </ul>
+          </li>
+        </ol>
+      </article>
+      <article>
+        <header>
+          <h2>Referencing objects and functions</h2>
+        </header>
+        <ol>
+          <li>
+            <div class="block">
+              var myFunction = function() {
+                function bar() {
+                  return 3;
+                }
+                return {
+                  raz: bar,
+                  fizz: bar() + 9,
+                  boop: function(x)
+                }
+              }
+            </div>
+          </li>
+          <li></li>
+          <li></li>
+        </ol>
+      </article>
+      <article>
+        <header>
+          <h2>Scopes & Variable Hoisting</h2>
+          <div class="alert">
+            If you get any of the following wrong after double-checking your answers in the console,
+            review the following resource: <a href="https://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/" target="_blank">Everything you wanted to know about javascript scope</a>
+          </div>
+        </header>
+        <ol>
+          <li>
+           <div class="block">
+              function foo() {
+                var x = 3;
+                console.log(x);
+              }
+              console.log(x);
+            </div>
+            Run the above code. Explain what happened.
+            <strong>ANSWER: variables declared within a function are only accessible within that function's scope.<br>
+            This means that if we try to log or use the variable 'x' we will be returned a reference error</strong>
+            
+            
+        
+          </li>
+          <li>
+            <div class="block">
+              var greeting = 'Hello';
+              var scope1 = function () {
+                var scope2 = function () {
+                  var scope3 = function () {
+                    console.log(greeting);
+                  };
+                  scope3();
+                };
+                scope2();
+              };
+            </div>
+            What is the result of <code>scope1()</code>?<br>
+            <strong>ANS: calling scope1 will log 'hello' in the console.  Because greeting is declared from outside the function
+            , it is available to each of the scope functions.</strong>
+          </li>
+          <li>
+            <div class="block">
+              var greeting = 'Hello';
+              var scope1 = function () {
+                var scope2 = function () {
+                  var scope3 = function () {
+                    return greeting;
+                  };
+                  return scope3();
+                };
+                return scope2();
+              };
+            </div>
+            What is the result of <code>scope2()</code>?
+                <p><strong><code>scope2(); //-> VM903:1 Uncaught ReferenceError: scope2 is not defined(…)(anonymous 
+                function) @ VM903:1 </code><br>This is because the scope2() declaration is nested within the scope1() declaration,
+                therefore it is unavailable to the outer context.</strong></p>
+          </li>
+          <li>
+            <div class="block">
+              var greeting = 'Hello';
+              var scope1 = function () {
+                var greeting = 'Goodbye';
+                var scope2 = function () {
+                  var scope3 = function () {
+                    return greeting;
+                  };
+                  return scope3();
+                };
+                return scope2();
+              };
+            </div>
+            What is the result of <code>scope3()</code>?
+            <p><strong><code>scope3(); //-> VM904:1 Uncaught ReferenceError: scope2 is not defined(…)(anonymous 
+                function) @ VM904:1 </code><br>This is because the scope3() declaration is nested within the scope1() declaration,
+                therefore it is unavailable to the outer context.</strong></p>
+          </li>
+        </ol>
+      </article>
+      <article>
+        <header>
+          <h2>Conditional Logic</h2>
+        </header>
+        <ol>
+          <li>
+            <div class="block">
+              function bloop(x) {
+                if (x === 'bloop') {
+                  return 'bleep';
+                }
+                return 'blahp';
+              }
+            </div>
+            <ul>
+              <li>
+                If <code>bloop(someString)</code> returns <code>"bleep"</code>, what is the value of <code>someString</code>?<br>
+                <strong>ANSWER: 'bloop'.  (if bloop(someString) returns 'bleep' then the if statement condition within bloop() must be true.  If 
+                the if statement condition is true then x must be strictly equal to 'bloop'.  </strong>
+              </li>
+              
+              <li>
+                If <code>bloop(someString2)</code> returns <code>"blahp"</code>, what do we know about <code>someString2</code>?
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="block">
+              function gloop(x) {
+                if (x > 5) {
+                  x++;
+                  return x * -1;
+                } else {
+                  x + 5;
+                  return x;
+                }
+                return x;
+              }
+            <div>
+            </li>
+            <ul>
+              <li>
+                Given a number <code>num</code>, if <code>gloop(num)</code> returns <code>-10</code>, what is <code>num</code>?
+                <p><strong><code>num</code>= 9 or <code>num</code>= -10</strong></p>
+              </li>
+              <li>
+                Given a number <code>num2</code>, if <code>gloop(num2)</code> returns <code>-5</code>, what is <code>num2</code>?
+                <p><strong><code>num</code>= -5</strong></p>
+              </li>
+              
+            
+                <div>
+                    <code>
+               var gloop = function(result) {
+                for (var z = -20; (z >= -20) && (z<=20); z++) {
+                  var i = z;
+                  if (i > 5) {
+                    i++;
+                    if ((i * -1) === result) {
+                      console.log(z);
+                    } 
+                    } else {
+                        if ((i + 5) === result) {
+                           console.log(z);
+                        }
+                      } 
+                  }
+                }
+                </code>
+             </div>
+            
+          
+          </li>
+          <li>
+            Write a function <code>isFoo</code> that takes a string and returns <code>"yep"</code> if the string is <code>"foo"</code>, and <code>"nope"</code> if the string is not <code>"foo"</code>.
+          </li>
+          
+          <p><code>
+            function isFoo(strg) {
+                	if (strg == "foo") {
+                		return "yep";
+                	} else {
+                		return "nope";
+                	}
+                }
+            var strg = prompt("give me a string");
+            isFoo(strg);
+          </code></p>
+          
+          
+          <li>
+            Write a function <code>divisibleByThree</code> that takes an <strong>integer</strong> and returns the string <code>"is divisible by three"</code> if it is divisible by 3; or it returns <code>"is NOT divisible by three"</code> if it is not divisible by 3.
+          </li>
+          
+          <p><code>
+              
+            function divisibleByThree (num) {
+            	num = Math.floor(num);
+            	if (num % 3 === 0) {
+            		return "is divisible by three";
+            	} else {
+            		return "is NOT divisible by three";
+            	}
+            }
+            var num = prompt("Give me some digits");
+            divisibleByThree(num);
+            
+            
+              
+          </code></p>
+          
+          <li>
+            Write a function <code>divisibleByFive</code> that is like <code>divisibleByThree</code> but for the number 5 instead of 3.
+          </li>
+          
+          <p><code>
+              
+              function divisibleByFive(num) {
+                	num = Math.floor(num);
+                	if (num % 5 === 0) {
+                		return "is divisible by five";
+                	} else {
+                		return "is NOT divisible by five";
+                	}
+                }
+                var num = prompt("Give me some digits");
+                divisibleByFive(num);
+              
+              
+          </code></p>
+          
+          <li>
+            Write a function
+            <div class="block">
+              function divisibleBy(divisor, int) {
+
+              }
+            </div>
+            that determines if integer <code>int</code> is divisible by <code>divisor</code>. Make it work for any integer <code>divisor</code> and any integer <code>int</code>.
+          </li>
+          <p><code>
+              
+              function divisibleByInt(divisor, int) {
+                	int = Math.floor(int);
+                	divisor = Math.floor(divisor);
+                	if (int % divisor === 0) {
+                		return "is divisible by " + divisor;
+                	} else {
+                		return "is NOT divisible by " + divisor;
+                	}
+                }
+                var int = prompt("Give me a number you want to divide");
+                var divisor = prompt("and...what would you like to divide this by (only whole numbers please")
+                divisibleByInt(divisor, int);
+
+
+          </code></p>
+          <li>
+            Write a function <code>isANumber1</code> that takes some argument, and returns <code>true</code> if it is a number, or  <code>false</code>  if it is not a number. Use the method <code>isNaN</code>.
+          </li>
+          <p><code>
+              
+              function isANumber(num) {
+                if (!isNaN(num)) {
+                  return true;
+                } else {
+                    return false;
+                  }
+              }
+                
+              var num = prompt("Give me a number");
+              isANumber(num);
+
+
+          </code></p>
+          
+          <li>
+            Write a function <code>isANumber2</code> that takes some argument, and returns <code>true</code> if it is a number, or  <code>false</code> if it is not a number. Do NOT use the method <code>isNaN</code>.
+          </li>
+          <p><code>
+              
+              function isANumber2(input) {
+            	if (typeof num == 'number') {
+            		return true;
+            	} else {
+            		return false;
+            	}
+              }
+              isANumber2("NOT A NUMBER");
+              
+          </code></p>
+          
+          <li>
+            Write a function <code>isInteger</code> that takes a number, and returns <code>true</code> if it is an integer, or  <code>false</code> if it is not an integer.
+          </li>
+          <p><code>
+              
+              function isInteger(input) {
+            	if(input % 1 === 0) {
+                	return true;
+                } else {
+                	return false;
+                  }
+                }
+                var input = prompt("Give me a number");
+                isInteger(input);
+                
+                <span>OR</span>
+                
+              function isInteger(input) {
+            	if(Number.isInteger(input)) {
+                	return true;
+                } else {
+                	return false;
+                  }
+                }
+                var input = prompt("Give me a number");
+                isInteger(input);
+              
+          </code></p>
+          <li>
+            Write a function <code>newDivisibleBy</code> that does the same thing as <code>divisibleBy</code> when <code>divisor</code> and <code>int</code> are integers,
+            but that throws an error message "Arguments must be integers" if either <code>int</code> OR <code>divisor</code> are not an integer. An integer is 1) a number that 2) has a modulo 0 (% 0) of zero (i.e., <code>x % 1 === 0</code>).
+          </li>
+          
+          <p><code>
+              
+              function divisibleByInt(divisor, int) {
+	 
+                  function intCheck(num) {
+                    if(num % 1 === 0) {
+                    	return true
+                    }
+                  }
+                  
+                  try {
+                	if (!(intCheck(divisor)) || !(intCheck(int))) throw "please input an Integer";
+                  }
+                
+                  catch (err) {return "Error: " + err}
+                  
+                  
+               	  if (int % divisor === 0) {
+                    return "is divisible by " + divisor;
+                  } else {
+                    return "is NOT divisible by " + divisor;
+                    }
+              }
+
+
+              var int = prompt("Give me a number you want to divide");
+              var divisor = prompt("and...what would you like to divide this by (only whole numbers please")
+              divisibleByInt(divisor, int);
+              
+          </code></p>
+          
+        </ol>
+      </article>
+      <article>
+        <header>
+          <h2>Objects</h2>
+        </header>
+        <ol>
+          <li>
+            <div class="block">
+              var train = {
+                name: 'Thomas',
+                mile: 0,
+                chug: function() {
+                  this.mile++;
+                  return this;
+                },
+                greet: function() {
+                  console.log('Hi! My name is ' + this.name);
+                },
+                choo: function() {
+                  console.log('ChoooChoo!');
+                }
+              };
+            </div>
+            <ul>
+              <li>What is <code>train.name</code>?</li>
+              <p><code>train.name; //-> "Thomas"</code></p>
+              <li>What is the result of <code>train.greet()</code>? What about <code>greet()</code>?</li>
+              <p><code>train.greet(); //-> "Hi! My name is Thomas"</code></p>
+              <p><code>greet(); //-> VM5250:1 Uncaught ReferenceError: greet is not defined(…)</code></p>
+              <li>Use the properties of <code>train</code> to make it so that <code>train.mile</code> is 3.</li>
+              <p><code>
+                var train = {
+                    name: 'Thomas',
+                    mile: 0,
+                    chug: function() {
+                      this.mile++;
+                      return this;
+                    },
+                    greet: function() {
+                      console.log('Hi! My name is ' + this.name);
+                    },
+                    choo: function() {
+                      console.log('ChoooChoo!');
+                    }
+                };
+                function callChug(amountOfChugs) {
+                  for (counter = 0; counter < amountOfChugs; counter ++) {
+                      train.chug();
+                      return train.mile;
+                  }
+                }
+
+              </code></p>
+              <li>What is the result of <code>train.chug().chug() - train.chug()</code>?</li>
+              <p><code>train.chug().chug() - train.chug(); //-> NaN</code><br><strong>This is because <code>train.chug();</code> 
+              returns <code>this</code>aka: the context or the object train, which is NaN.  Any calculations with NaN returns NaN.</strong></p>
+              <li>
+                Create a function <code>travel</code> that takes a <code>train</code> object like the one above
+                <div class="block">
+                  function travel(train) {
+                    //...
+                  };
+                </div>
+                and prints the following:
+                <div class="block">
+                  ChooChoo! Mile 1!
+                  ChooChoo! Mile 2!
+                  ChooChoo! Mile 3!
+                  ChooChoo! Mile 4!
+                  ChooChoo! Mile 5!
+                </div>
+                using the properties of the <code>train object</code>
+                 
+                 <code>var train = {
+                    name: 'Thomas',
+                    mile: 0,
+                    chug: function() {
+                      this.mile++;
+                      return this;
+                    },
+                    greet: function() {
+                      console.log('Hi! My name is ' + this.name);
+                    },
+                    choo: function() {
+                      console.log('ChoooChoo!');
+                    },
+                    callChug: function() {
+                      train.chug();
+                      console.log("Mile " + train.mile + "!");
+                    }    
+                }
+                function travel(train) {
+                	for (i = 0; i < 5; i++) {
+                		train.chug();
+                		train.choo();
+                		console.log("Mile " + train.mile + "!");
+                	}
+                }
+
+                travel(train);</code>
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </article>
+      <article>
+        <header>
+          <h2>Bonus DOM Event Challenges</h2>
+        </header>
+        <ol>
+          <li>
+            Create a website with a styled div that, when you <strong>mouse</strong> over it, it gets styled differently, and when you mouse out of it, it goes back to its original style.
+          </li>
+          <li>
+            Create a website with a styled div that, when you <strong>click</strong> over it, it gets styled differently, and when you click it again, it goes back to its original style.
+          </li>
+          <li>
+            Create a website with an image of your choice on it. Every time you click on the image,
+            it does a neat trick, like rotate, zoom in, etc.
+            Check out <a href="https://css-tricks.com/almanac/properties/t/transform/" target="_blank">CSS Tricks: Transform</a>
+            and this <a href="http://stackoverflow.com/questions/22492498/css-resize-zoom-in-effect-on-image-while-keeping-dimensions" target="_blank">StackOverflow post</a>.
+          </li>
+        </ol>
+      </article>
+      <hr>
+      <article>
+        <header>
+            <h2>Extra Bonus Challenges</h2>
+            <p class="lead">You ready for this?</p>
+          </header>
+
+          <h4>A Difficult Assessment</h4>
+          <p>
+            <span class="label label-danger">bonus</span> Take this <a href="http://davidshariff.com/js-quiz/" target="_blank">Javascript Web Development Quiz</a>.
+            It will cover 90% of what we've already covered in class, plus a few new things about Javascript, too.
+            For every incorrect answer, understand why you got it wrong + a description of the concept evaluated, and write it down (so
+            we have the chance to go over it in class later).
+            Retake the quiz until you score high. Aim to beat the average (~50%).
+          </p>
+          <p><strong>Do not worry about Question 13, 15, 16 for now.</strong></p>
+          <p>
+            Feel free to ask questions in Slack in the class channel or #questions <em>anytime</em> that you are stuck!
+          </p>
+          <p>Things to Google:
+            instanceof,
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank">javascript arguments object</a>
+          </p>
+
+          <h4>Learning Best Practices</h4>
+          <p>
+            <span class="label label-danger">bonus</span> Read <a href="http://code.tutsplus.com/tutorials/24-javascript-best-practices-for-beginners--net-5399" target="_blank">24 JavaScript Best Practices for Beginners</a>.
+            Take a previous javascript homework assignment and commit it to github as a new github repo. Then rewrite your code so that it follows each one of the best practices listed.
+            Commit your refactored changes. Go to your github repo, hit Commits, and click on the commit that contains your refactored changes.
+            Copy the URL of that page and submit that commit page URL to complete this exercise.
+          </p>
+      </article>
+    </div>
+  </body>
+</html>
